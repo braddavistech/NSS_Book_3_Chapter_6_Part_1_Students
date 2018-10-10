@@ -75,21 +75,36 @@ const students = [
 
 const h1 = (title, style) => {
   return `<h1 class="${style}">${title}</h1>`
-}
+};
 
 const section = (title, style) => {
   return `<section class="bordered dashed ${style}">${title}</section>`
-}
+};
 
 const aside = (title, style) => {
   return `<aside class="${style}">${title}</aside>`
-}
+};
 
-for (student of students) {
-  let studentComponent = ""
-  if (student.score >= 60) {
-      studentComponent = ...
-  } else {
-      studentComponent = ...
-  }
-}
+
+
+let studentString;
+
+function student (title, style, info) {
+  return  '<div id="student">' + h1(title, "xx-large") + section(style, "section--padder") + aside(info, "pushRight") + '</div>';
+};
+
+
+
+
+const studentCont = document.querySelector("#container");
+individualStudent = [];
+
+for (let i = 0; i < students.length; i++){
+  var studentDiv = document.createElement("div");
+  individualStudent.push(student(students[i].name, students[i].class, students[i].info));
+  // studentDiv.appendChild(individualStudent);
+  // console.log(student(students[i].name, students[i].class, students[i].info));
+};
+studentCont.innerHTML = individualStudent;
+
+// console.log(individualStudent);
