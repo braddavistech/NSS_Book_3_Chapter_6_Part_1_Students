@@ -86,25 +86,25 @@ const aside = (title, style) => {
 };
 
 
-
-let studentString;
-
-function student (title, style, info) {
-  return  '<div id="student">' + h1(title, "xx-large") + section(style, "section--padder") + aside(info, "pushRight") + '</div>';
+function studentPass (title, style, info) {
+  return  '<div class="student">' + h1(title, "xx-large passing") + section(style, "section--padder") + aside(info, "pushRight") + '</div>';
 };
 
-
+function studentFail (title, style, info) {
+  return  '<div class="student">' + h1(title, "xx-large failing") + section(style, "section--padder") + aside(info, "pushRight") + '</div>';
+};
 
 
 const studentCont = document.querySelector("#container");
 individualStudent = [];
 
 for (let i = 0; i < students.length; i++){
-  var studentDiv = document.createElement("div");
-  individualStudent.push(student(students[i].name, students[i].class, students[i].info));
-  // studentDiv.appendChild(individualStudent);
-  // console.log(student(students[i].name, students[i].class, students[i].info));
-};
-studentCont.innerHTML = individualStudent;
+  if (students[i].score >= 60){
+    individualStudent.push(studentPass(students[i].name, students[i].class, students[i].info));
+  } else {
+    individualStudent.push(studentFail(students[i].name, students[i].class, students[i].info));
+  }
 
-// console.log(individualStudent);
+};
+
+studentCont.innerHTML = individualStudent.join("");
