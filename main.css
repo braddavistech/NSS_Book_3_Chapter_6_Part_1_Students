@@ -15,9 +15,8 @@ body{
   margin: 1vw;
   background-color: white;
 }
-}
 .pushRight {
-  margin-left: auto;
+  text-align: right;
 }
 
 .xx-large {
